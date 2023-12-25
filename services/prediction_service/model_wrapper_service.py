@@ -1,6 +1,7 @@
 # services/prediction_service/model_wrapper_service.py
 import torch
-from models.deep_nn import SimpleBinaryClassifier
+from services.model_service.simple_classifier_service import SimpleBinaryClassifier
+
 
 class ModelWrapper:
     def __init__(self, model_path, input_size):
@@ -12,6 +13,8 @@ class ModelWrapper:
 
         # Load the state dictionary into the model
         state_dict = torch.load(model_path, map_location=torch.device('cpu'))
+        self.device = torch.device("cuda" if torch.cuda.is_available())
+
         model.load_state_dict(state_dict)
 
         return model
