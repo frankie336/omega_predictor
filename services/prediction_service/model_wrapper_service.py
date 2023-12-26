@@ -4,11 +4,24 @@ from services.model_service.simple_classifier_service import SimpleBinaryClassif
 
 
 class ModelWrapper:
+    """
+       A wrapper class for the machine learning model to handle loading, prediction, and processing.
+
+       Attributes:
+           model (torch.nn.Module): The neural network model for prediction.
+           device (torch.device): The device (CPU or GPU) the model is running on.
+    """
     def __init__(self, model_path, input_size):
         self.model = self.load_model(model_path, input_size)
 
     def load_model(self, model_path, input_size):
-        # Initialize an instance of the model
+        """
+        Initializes the ModelWrapper with the specified model and input size.
+
+        Args:
+            model_path (str): The path to the saved model file.
+            input_size (int): The number of input features the model expects.
+        """
         model = SimpleBinaryClassifier(input_size=input_size)  # Pass any required arguments
 
         # Load the state dictionary into the model
