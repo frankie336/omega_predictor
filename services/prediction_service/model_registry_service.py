@@ -1,6 +1,5 @@
 import os
 import time
-
 import torch
 from pathlib import Path
 from services.model_service.simple_classifier_service import SimpleBinaryClassifier
@@ -45,16 +44,12 @@ class ModelRegistryService:
         Returns:
             str: The file path of the model's state dictionary.
         """
-        # This method should return the path where the model's state dict is stored.
-        # For example:
-
         root_dir_path = Path(__file__).parent
-
         return f"{root_dir_path}models/{model_identifier}.pt"
 
 
 if __name__ == '__main__':
     model_registry_service = ModelRegistryService()
-    path = model_registry_service.get_model_path(model_identifier='IntraDayForexPredictor')
+    path = model_registry_service.get_model_path(model_identifier='IntraDayForexPredictor_v4.0.10')
     print(path)
 

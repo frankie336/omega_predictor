@@ -3,18 +3,19 @@ import torch
 from services.model_service.simple_classifier_service import SimpleBinaryClassifier
 
 
-
-
 class ModelWrapper:
     """
-       A wrapper class for the machine learning model to handle loading, prediction, and processing.
-
-       Attributes:
-           model (torch.nn.Module): The neural network model for prediction.
-           device (torch.device): The device (CPU or GPU) the model is running on.
+    A wrapper class for the machine learning model to handle prediction and processing.
     """
-    def __init__(self, model_path, input_size):
-        self.model = self.load_model(model_path, input_size)
+    def __init__(self, loaded_model):
+        """
+        Initializes the ModelWrapper with a pre-loaded model.
+
+        Args:
+            loaded_model (torch.nn.Module): A pre-loaded and initialized neural network model.
+        """
+        self.model = loaded_model
+        self.device = loaded_model.device  # Assuming the model has a 'device' attribute
 
     def load_model(self, model_path, input_size):
         """
@@ -62,5 +63,6 @@ class ModelWrapper:
             print("No data provided for prediction.")
             return None, None
 
-if __name__ == '__main__':
+
+   if __name__ == '__main__':
     model_Wrapper = ModelWrapper()
