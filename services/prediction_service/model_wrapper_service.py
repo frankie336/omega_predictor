@@ -25,8 +25,8 @@ class ModelWrapper:
         model = SimpleBinaryClassifier(input_size=input_size)  # Pass any required arguments
 
         # Load the state dictionary into the model
-        state_dict = torch.load(model_path, map_location=torch.device('cpu'))
-        self.device = torch.device("cuda" if torch.cuda.is_available())
+        state_dict = torch.load(model_path, map_location=torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         model.load_state_dict(state_dict)
 
