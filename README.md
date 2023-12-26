@@ -48,4 +48,4 @@ This project is licensed under the Attribution 4.0 International License - see t
 
 ## Acknowledgments
 
-- David: https://chat.openai.com/g/g-7oUtFOMf3-david/c/9fc62a88-c224-4658-99d2-b6017d0ab860
+- David
