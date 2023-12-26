@@ -20,6 +20,10 @@ class DataHandler:
             scaler: An instance of a scaler class (e.g., StandardScaler from sklearn).
         """
         self.scaler = scaler
+        self.prediction_df = None
+        self.X_test = None
+        self.X_test_tensor = None
+        self.reference_df = None
 
     def preprocess_data(self, original_df):
         """
@@ -45,7 +49,6 @@ class DataHandler:
         Returns:
             numpy.ndarray: The scaled data.
         """
-        # Implementing the scaling logic from the original code
         inputs = data.values if isinstance(data, pd.DataFrame) else data
         inputs_scaled = self.scaler.fit_transform(inputs)
 
