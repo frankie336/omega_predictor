@@ -61,8 +61,8 @@ class ModelWrapper:
             return binary_predictions, probability_positive_class
         else:
             print("No data provided for prediction.")
-            return None, None
+            return None  # Corrected indentation here
 
 
-   if __name__ == '__main__':
+if __name__ == '__main__':
     model_Wrapper = ModelWrapper()
