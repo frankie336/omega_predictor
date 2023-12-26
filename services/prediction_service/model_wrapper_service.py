@@ -3,6 +3,8 @@ import torch
 from services.model_service.simple_classifier_service import SimpleBinaryClassifier
 
 
+
+
 class ModelWrapper:
     """
        A wrapper class for the machine learning model to handle loading, prediction, and processing.
@@ -59,3 +61,6 @@ class ModelWrapper:
         else:
             print("No data provided for prediction.")
             return None, None
+
+if __name__ == '__main__':
+    model_Wrapper = ModelWrapper()
