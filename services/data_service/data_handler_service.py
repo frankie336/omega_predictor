@@ -1,7 +1,7 @@
 # services/data_service/data_handler_service.py
 import pandas as pd
-import numpy as np
 import torch
+from services.data_service.data_loader_service import DataLoaderService
 
 
 class DataHandler:
@@ -12,7 +12,7 @@ class DataHandler:
         scaler: An instance of a scaler class from sklearn or a custom scaler.
     """
 
-    def __init__(self, scaler, original_df,  data_processor=None):
+    def __init__(self, scaler, original_df):
         """
         Initializes the DataHandler with the specified scaler.
 
@@ -20,6 +20,8 @@ class DataHandler:
             scaler: An instance of a scaler class (e.g., StandardScaler from sklearn).
         """
         self.scaler = scaler
+        DataLoaderService(scaler=self.scaler)
+        self.create_data_loaders_from_dataframe = DataLoaderService.create_data_loaders_from_dataframe(df=self.prediction_df)
         self.prediction_df = None
         self.X_test = None
         self.X_test_tensor = None
@@ -27,17 +29,19 @@ class DataHandler:
 
     def preprocess_data(self, original_df):
         """
-        Performs preprocessing on the provided DataFrame.
+        Processes the feature engineered data to create tensors for prediction. It scales the data using
+        the 'create_data_loaders_from_dataframe' method and then converts it into a PyTorch tensor.
 
         Args:
-            df (pandas.DataFrame): The data to be preprocessed.
+            original_df (pandas.DataFrame): The original DataFrame containing the feature-engineered data.
 
         Returns:
-            pandas.DataFrame: The preprocessed data.
+            torch.Tensor: A tensor representing the scaled and processed input data ready for prediction.
         """
         self.reference_df = original_df
-        inputs_scaled = self.create_data_loaders_from_dataframe(df=self.prediction_df)
+        inputs_scaled = self.create_data_loaders_from_dataframe
         self.X_test_tensor = torch.tensor(inputs_scaled, dtype=torch.float32)
+        return self.X_test_tensor
 
     def scale_data(self, data):
         """
