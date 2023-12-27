@@ -21,3 +21,7 @@ dependencies = [
 homepage = "https://github.com/frankie336/omega_predictor"
 repository = "https://github.com/frankie336/omega_predictor"
 # documentation = "https://your.documentation.url"
+
+[tool.setuptools]
+package_dir = {"": "src"}
+packages = find_namespace_packages(where="src")
