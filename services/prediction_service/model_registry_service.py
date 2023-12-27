@@ -1,5 +1,3 @@
-import os
-import time
 import torch
 from pathlib import Path
 from services.model_service.simple_classifier_service import SimpleBinaryClassifier
