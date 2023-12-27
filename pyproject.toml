@@ -1,53 +1,23 @@
-# pyproject.toml
-
 [build-system]
 requires = ["setuptools>=40.6.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools]
-# Basic metadata
+[project]
 name = "omega_predictor"
-version = "1.0.1"
+version = "0.1.0"
 description = "A Neural Network predictor"
-long_description = "file: README.md"
-long_description_content_type = "text/markdown"
-url = "https://github.com/frankie336/omega_predictor"
-author = "Francis Neequaye"
-author_email = "francis.neequaye@gmail.com"
-license = "MIT"
+authors = [{name = "Francis Neequaye", email = "francis.neequaye@gmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.6"
 
-# Classifiers help users find your project by categorizing it.
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
-
-python_requires = ">=3.6"
-[tool.setuptools.scripts]
-
-[tool.setuptools.entry_points]
-# Define any entry points for your application
-# console_scripts = [
-#     "example=module.path:main_func",
-# ]
-
-[tool.setuptools.dependencies]
-# List your project dependencies here
-# Use the version specifiers to control what versions you want to install.
-install_requires = [
+dependencies = [
     "numpy",
     "pandas",
-
+    # Add other dependencies as needed
 ]
 
-[tool.setuptools.extras_require]
-# Define any optional dependencies (for development, testing, etc.)
-dev = ["check-manifest"]
-test = ["coverage"]
-
 [project.urls]
-# Additional URLs that are relevant to your project
 homepage = "https://github.com/frankie336/omega_predictor"
 repository = "https://github.com/frankie336/omega_predictor"
 # documentation = "https://your.documentation.url"
