@@ -37,5 +37,5 @@ def create_folder_structure(base_path):
     print(f"Folder structure created in {base_path}")
 
 # Set the base path to the current directory (or change to your desired root directory)
-base_path = '..'  # Current directory
+base_path = '../src'  # Current directory
 create_folder_structure(base_path)
