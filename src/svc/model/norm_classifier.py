@@ -1,7 +1,7 @@
-# services/model_service/norm_classifier_service.py
+# services/model/norm_classifier.py
 import torch
 import torch.nn.functional as F
-from omega_predictor.services.model_service.base_nn_service import BaseNN
+from svc.model.base_nn import BaseNN
 import torch.nn as nn
 
 

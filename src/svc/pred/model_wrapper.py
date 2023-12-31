@@ -1,6 +1,6 @@
-# services/prediction_service/model_wrapper_service.py
+# services/pred/model_wrapper.py
 import torch
-from omega_predictor.services.model_service.simple_classifier_service import SimpleBinaryClassifier
+from svc.model.simple_classifier import SimpleBinaryClassifier
 
 
 class ModelWrapper:

@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Define the root directory of your project (adjust if necessary)
-project_root = "C:/Users/franc/PycharmProjects/omega_predictor"
+project_root = "C:/Users/franc/PycharmProjects/omega_pre"
 
 # Define the directories to move into the 'src' folder
 directories_to_move = ["config", "data", "David", "notebooks", "scripts", "services", "utils"]

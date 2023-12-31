@@ -1,4 +1,4 @@
-# Python script to create the proposed folder structure for the "omega_predictor" project.
+# Python script to create the proposed folder structure for the "omega_pre" project.
 
 import os
 
@@ -8,8 +8,8 @@ def create_folder_structure(base_path):
         "config",
         "models",
         "services",
-        "services/prediction_service",
-        "services/data_service",
+        "services/pred",
+        "services/data",
         "data",
         "data/processed",
         "data/raw",

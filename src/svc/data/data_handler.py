@@ -1,7 +1,7 @@
-# services/data_service/data_handler_service.py
+# services/data/data_handler.py
 import pandas as pd
 import torch
-from omega_predictor.services.data_service.data_loader_service import DataLoaderService
+from svc.data.data_loader import DataLoaderService
 
 
 class DataHandler:

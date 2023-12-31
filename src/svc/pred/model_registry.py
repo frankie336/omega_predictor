@@ -1,6 +1,6 @@
 import torch
 from pathlib import Path
-from omega_predictor.services.model_service.simple_classifier_service import SimpleBinaryClassifier
+from svc.model.simple_classifier import SimpleBinaryClassifier
 
 
 class ModelRegistryService:
