@@ -5,7 +5,7 @@ import shutil
 project_root = "C:/Users/franc/PycharmProjects/omega_pre"
 
 # Define the directories to move into the 'src' folder
-directories_to_move = ["config", "data", "David", "notebooks", "scripts", "services", "utils"]
+directories_to_move = ["config", "data", "David", "notebooks", "scripts", "svc", "utils"]
 
 # Create the 'src' directory if it doesn't already exist
 src_directory = os.path.join(project_root, "src")

@@ -1,4 +1,4 @@
-# services/model/norm_classifier.py
+# svc/model/norm_classifier.py
 import torch
 import torch.nn.functional as F
 from svc.model.base_nn import BaseNN

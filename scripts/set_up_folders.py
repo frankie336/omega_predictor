@@ -7,9 +7,9 @@ def create_folder_structure(base_path):
     folders = [
         "config",
         "models",
-        "services",
-        "services/pred",
-        "services/data",
+        "svc",
+        "svc/pred",
+        "svc/data",
         "data",
         "data/processed",
         "data/raw",

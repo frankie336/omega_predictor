@@ -1,4 +1,4 @@
-# services/pred/model_wrapper.py
+# svc/pred/model_wrapper.py
 import torch
 from svc.model.simple_classifier import SimpleBinaryClassifier
 
