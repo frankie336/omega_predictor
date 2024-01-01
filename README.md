@@ -1,4 +1,4 @@
-# Omega Predictor
+Omega Predictor
 
 Omega Predictor is a sophisticated machine learning pipeline designed for real-time financial market prediction, specifically tailored for the forex market. Utilizing advanced deep learning techniques, the Omega Predictor aims to provide accurate and timely predictions to empower decision-making.
 
@@ -21,31 +21,31 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository:git clone https://github.com/frankie336/omega_predictor.git2. Navigate to the project directory:cd omega_predictor3. Install the required dependencies:pip install -r requirements.txt### Usage
 
-2. Navigate to the project directory:
+To start using the Omega Predictor, ensure you have the necessary data and model files in the appropriate directories. Here is a basic example of how to use the predictor:
 
-3. Install the required dependencies:
+```python
+from omega_predictor.svc.model.simple_classifier import SimpleClassifier
+from omega_predictor.svc.data.data_handler import DataHandler
+from omega_predictor.svc.pred.model_wrapper import ModelWrapper
 
+# Initialize the data handler
+data_handler = DataHandler()
 
+# Load your trained model
+model = SimpleClassifier(input_size=10)  # Assuming '10' is the correct input size for your model
+model.load_state_dict(torch.load('path_to_trained_model.pt'))
+model.eval()
 
-### Usage
+# Wrap the model with the ModelWrapper for prediction
+model_wrapper = ModelWrapper(model)
 
-To start using the Omega Predictor, ensure you have the necessary data and model files in the appropriate directories. Follow the instructions specific to each service component for data preparation, model loading, and making predictions.
+# Process your input data
+df = your_input_dataframe  # Replace this with your actual data in a pandas DataFrame
+tensor_data = data_handler.df_to_tensor(df)
 
-## Contribution
+# Make predictions
+prediction = model_wrapper.predict(tensor_data)
 
-As a growing project, we welcome contributions of all forms. Please read through `CONTRIBUTING.md` for guidelines on how to submit contributions.
-
-## Authors
-
-- **Francis F Neequaye** - *Initial work* -(https://github.com/frankie336)
-
-
-## License
-
-This project is licensed under the Attribution 4.0 International License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- David
+# The 'prediction' variable now holds the model's predictionThis script demonstrates the basic flow from data handling to prediction. Replace the placeholders with your actual data paths and parameters.ContributionAs a growing project, we welcome contributions of all forms. Please read through CONTRIBUTING.md for guidelines on how to submit contributions.AuthorsFrancis F Neequaye - Initial work - ProfileLicenseThis project is licensed under the Attribution 4.0 International License - see the LICENSE.md file for details.AcknowledgmentsThe Omega team wishes to extend our gratitude to all contributors and users, especially to David, whose insights and guidance were invaluable during the development phase.
