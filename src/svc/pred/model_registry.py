@@ -2,6 +2,7 @@ import torch
 from pathlib import Path
 from src.svc.model.simple_classifier import SimpleBinaryClassifier
 
+
 class ModelRegistryService:
     """
     Service class for managing and providing access to different machine learning models,
