@@ -1,7 +1,7 @@
 # svc/data/data_handler.py
 import pandas as pd
 import torch
-from svc.data.data_loader import DataLoaderService
+from src.svc.data.data_loader import DataLoaderService
 
 
 class DataHandler:
