@@ -1,6 +1,6 @@
 import torch
 from pathlib import Path
-from svc.model.simple_classifier import SimpleBinaryClassifier
+from src.svc.model.simple_classifier import SimpleBinaryClassifier
 
 
 class ModelRegistryService:

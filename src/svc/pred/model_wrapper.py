@@ -1,6 +1,6 @@
 # services/pred/model_wrapper.py
 import torch
-from svc.model.simple_classifier import SimpleBinaryClassifier
+from src.svc.model.simple_classifier import SimpleBinaryClassifier
 
 
 class ModelWrapper:
@@ -15,7 +15,7 @@ class ModelWrapper:
             loaded_model (torch.nn.Module): A pre-loaded and initialized neural network model.
         """
         self.model = loaded_model
-        self.device = loaded_model.device  # Assuming the model has a 'device' attribute
+        self.device = loaded_model.device
 
     def load_model(self, model_path, input_size):
         """
