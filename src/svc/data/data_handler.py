@@ -12,7 +12,7 @@ class DataHandler:
         scaler: An instance of a scaler class from sklearn or a custom scaler.
     """
 
-    def __init__(self, scaler, original_df):
+    def __init__(self, scaler, original_df=None):
         """
         Initializes the DataHandler with the specified scaler.
 
@@ -21,7 +21,9 @@ class DataHandler:
         """
         self.scaler = scaler
         DataLoaderService(scaler=self.scaler)
-        self.create_data_loaders_from_dataframe = DataLoaderService.create_data_loaders_from_dataframe(df=self.prediction_df)
+
+        # self.create_data_loaders_from_dataframe = DataLoaderService.create_data_loaders_from_dataframe(df=self.prediction_df)
+
         self.prediction_df = None
         self.X_test = None
         self.X_test_tensor = None

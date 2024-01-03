@@ -15,7 +15,7 @@ class ModelWrapper:
             loaded_model (torch.nn.Module): A pre-loaded and initialized neural network model.
         """
         self.model = loaded_model
-        self.device = loaded_model.device
+        self.device = loaded_model
 
     def load_model(self, model_path, input_size):
         """
