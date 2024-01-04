@@ -1,23 +1,36 @@
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 
+
 class DataLoaderService:
     """
     A service class for converting pandas DataFrames into PyTorch DataLoader objects.
     """
 
-    def __init__(self, scaler, batch_size=32):
+    def __init__(self, scaler_parameters, batch_size=32):
         """
-        Initializes the DataLoaderService with a scaler and batch size.
+        Initializes the DataLoaderService with scaler parameters and batch size.
 
         Args:
-            scaler: An instance of a scaler class (e.g., StandardScaler from sklearn).
+            scaler_parameters: Pre-computed parameters for scaling (e.g., a numpy array with mean and std).
             batch_size (int): The size of the batches to provide when loading data.
         """
-        if not hasattr(scaler, 'fit_transform'):
-            raise ValueError("scaler must have a fit_transform method.")
-        self.scaler = scaler
+        self.scaler_parameters = scaler_parameters
         self.batch_size = batch_size
+
+    def apply_scaling(self, data):
+        """
+        Manually applies scaling to the data using the provided scaler parameters.
+
+        Args:
+            data (numpy.ndarray): The data to be scaled.
+
+        Returns:
+            numpy.ndarray: The scaled data.
+        """
+        # Assuming scaler_parameters is a tuple of (mean, std) for each feature
+        mean, std = self.scaler_parameters
+        return (data - mean) / std
 
     def create_data_loader_from_dataframe(self, df):
         """
@@ -29,15 +42,17 @@ class DataLoaderService:
         Returns:
             DataLoader: A DataLoader containing the scaled and tensor-converted features.
         """
-        # Scale the features
-        X_scaled = self.scaler.fit_transform(df)
+        # Convert DataFrame to numpy array
+        data_array = df.values
+
+        # Manually apply scaling
+        scaled_data = self.apply_scaling(data_array)
 
         # Convert to PyTorch tensors
-        features_tensor = torch.tensor(X_scaled, dtype=torch.float32)
+        features_tensor = torch.tensor(scaled_data, dtype=torch.float32)
 
         # Create a TensorDataset and DataLoader
         dataset = TensorDataset(features_tensor)
         data_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=False)
 
         return data_loader
-

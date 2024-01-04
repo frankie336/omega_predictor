@@ -20,7 +20,7 @@ class DataHandler:
             scaler: An instance of a scaler class (e.g., StandardScaler from sklearn).
         """
         self.scaler = scaler
-        DataLoaderService(scaler=self.scaler)
+        DataLoaderService()
 
         # self.create_data_loaders_from_dataframe = DataLoaderService.create_data_loaders_from_dataframe(df=self.prediction_df)
 
